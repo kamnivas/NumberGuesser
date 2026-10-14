@@ -3,7 +3,7 @@ Number Guesser is a game developed using JavaScript and HTML made in a beginner 
 
 ## To do list:
 - [ ] Guess the CPU's number
-- [ ] CPU guesses your number
+- [X] CPU guesses your number
 - [ ] Two player functionality
 
 > [!Note]
