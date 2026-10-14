@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1 Player Mode - Guess CPU</title>
-    <script src="script.js"></script>
     <style>
         .back-link {
             top: 20px;
@@ -24,5 +23,55 @@
 </head>
 <body>
     <a href="index.html" class="back-link">← Home Page</a>
+    <p id="comment">Choose Difficulty</p>
+    <input type="button" value="Easy" onclick="setRandom(1)">
+    <input type="button" value="Medium" onclick="setRandom(2)">
+    <input type="button" value="Hard" onclick="setRandom(3)">
+    <p></p>
+    <input type="number" id="userInput">
+    <input type="button" value="Guess Number" onclick="guessNumber()">
+
+    <script>
+        var secret = 0
+        var commentText = document.getElementById("comment")
+        function setRandom(level) {
+            let min = 0
+            let max = 0
+            let difficulty = ""
+            if(level == 1) {
+                min = 0
+                max = 9
+                difficulty = "Easy"
+            }
+
+            else if(level == 2) {
+                min = 10
+                max = 99
+                difficulty = "Medium"
+            }
+
+            else if(level == 3) {
+                min = 100
+                max = 999
+                difficulty = "Hard"
+            }
+            secret = Math.floor(Math.random() * (max - min + 1)) + min;
+            commentText.innerHTML = "Selected difficulty: " + difficulty + ". Now, guess a number! (Hint: the number is " + secret + ")"
+        }
+
+        function guessNumber() {
+            let guess = parseInt(document.getElementById("userInput").value);
+            console.log(guess)
+            if(guess > secret) {
+                commentText.innerHTML = "Too high!"
+            }
+            else if(guess < secret) {
+                commentText.innerHTML = "Too low!"
+            }
+            else {
+                commentText.innerHTML = "You guessed correctly!"
+            }
+        }
+    </script>
     </body>
 </html>
