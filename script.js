@@ -1,5 +1,32 @@
+// For 2P Mode
 var secretNumber = 0;
 
+// For 1P Mode
+var highValue = 100;
+var lowValue = 0;
+
+// Scripts for 1P Mode
+function guess(hl){
+    const target = document.getElementById("guess");
+
+    let guess = parseInt(target.innerHTML);
+    if (hl == 1) { // Take higher half
+        lowValue = (guess);
+        comment.innerHTML="Is your number..."
+    }
+    else if (hl == 0) { // Take lower half
+        highValue = guess;
+        comment.innerHTML = "Is your number..."
+    }
+    else if (hl == 2) { // Guess is correct
+        comment.innerHTML = "Haha, I got it right!"
+    }
+    guess = Math.floor((highValue + lowValue)/2);
+
+    target.innerHTML = guess;
+}
+
+// Scripts for 2P Mode
 function setSecretNumber() {
     // Only set the secret number if it hasn't been set yet
     secretNumber = document.getElementById("secretNum").value;
