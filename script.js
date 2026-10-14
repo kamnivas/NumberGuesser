@@ -1,22 +1,29 @@
-var highValue = 100;
-var lowValue = 0;
+var secretNumber = 0;
 
-function guess(hl){
-    const target = document.getElementById("guess");
+function setSecretNumber() {
+    // Only set the secret number if it hasn't been set yet
+    secretNumber = document.getElementById("secretNum").value;
 
-    let guess = parseInt(target.innerHTML);
-    if (hl == 1) { // Take higher half
-        lowValue = (guess);
-        comment.innerHTML="Is your number..."
+    if (secretNumber > 0 && secretNumber <= 100) {
+        alert("Good Job. Your number is " + secretNumber);
+        document.getElementById("helplabel").innerHTML = "Try to Guess the Number";
+        secretSet = true;
+    } else {
+        alert("Stop messing around!!!");
+        secretNumber = 0;
     }
-    else if (hl == 0) { // Take lower half
-        highValue = guess;
-        comment.innerHTML = "Is your number..."
-    }
-    else if (hl == 2) { // Guess is correct
-        comment.innerHTML = "Haha, I got it right!"
-    }
-    guess = Math.floor((highValue + lowValue)/2);
+    
+    
+    document.getElementById("secretNum").value = "0";
+}
 
-    target.innerHTML = guess;
+function guessSecretNumber() {
+     // Read Player 2's guess from the separate guess input field
+    const guess = document.getElementById("guessNum").value;
+    
+    if (secretNumber == guess) {
+        alert("Your guess is correct!! \n");
+    } else {
+        alert("Wrong guess, try again!");
+    }
 }
