@@ -50,7 +50,11 @@ function guessSecretNumber() {
     
     if (secretNumber == guess) {
         alert("Your guess is correct!! \n");
-    } else {
-        alert("Wrong guess, try again!");
+    }
+    else if (secretNumber > guess) {
+        alert("Too high, try again!");
+    }
+    else if (secretNumber < guess) {
+        alert("Too low, try again!");
     }
 }
