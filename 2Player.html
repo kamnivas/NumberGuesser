@@ -24,5 +24,31 @@
 </head>
 <body>
     <a href="index.html" class="back-link">← Home Page</a>
+
+    <p>Player 1</p>
+ <label for="secret"> Set Secret Number </label>
+     <input type="text"
+            name="secret"
+            id="secretNum"
+            placeholder="Enter a Number"
+            >
+    <input  type="button" 
+            name="SetValue" 
+            id="button" 
+            onclick="setSecretNumber()"
+            >
+            <p>Player 2</p>
+ <label for="secret"> Guess Numeber </label>
+     <input type="text"
+            name="secret"
+            id="guessNum"
+            placeholsder="Enter a Number"
+            >
+    <input  type="button" 
+            name="SetValue" 
+            id="guessbutton" 
+            onclick="guessSecretNumber()"
+            >
+            <script src="script.js"></script> 
 </body>
 </html>
